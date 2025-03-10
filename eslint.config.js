@@ -6,8 +6,7 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   { ignores: ['dist'] },
-  {
-    base: "/esri-devsummit-2025/",
+  {    
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
