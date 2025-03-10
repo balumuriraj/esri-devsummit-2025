@@ -6,7 +6,7 @@ import App from "./App.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/esri-devsummit-2025">
       <App />
     </BrowserRouter>
   </StrictMode>
