@@ -14,7 +14,8 @@ const NavBar = () => {
       <calcite-navigation-logo
         slot="logo"
         heading="Print for Web Developers"
-        description={pathname}
+        description={pathname === "/" ? "/home" : pathname}
+        icon="print"
       ></calcite-navigation-logo>
       <calcite-menu slot="content-end" label={""}>
         <Link to="/">
