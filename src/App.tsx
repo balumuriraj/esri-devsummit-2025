@@ -6,7 +6,7 @@ import "@esri/calcite-components/components/calcite-shell";
 import "@esri/calcite-components/components/calcite-menu";
 import "@esri/calcite-components/components/calcite-menu-item";
 
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -17,7 +17,6 @@ const Demo4 = lazy(() => import("./pages/Demo4"));
 
 const HomePage = () => {
   const location = useLocation();
-  console.log(location.key);
   return (
     <Suspense fallback={<div className="loading">Page is Loading...</div>}>
       <Home key={location.key} />
@@ -27,8 +26,6 @@ const HomePage = () => {
 
 const Demo1Page = () => {
   const location = useLocation();
-  console.log(location.key);
-
   return (
     <Suspense fallback={<div className="loading">Page is Loading...</div>}>
       <Demo1 key={location.key} />
@@ -38,7 +35,6 @@ const Demo1Page = () => {
 
 const Demo2Page = () => {
   const location = useLocation();
-  console.log(location.key);
   return (
     <Suspense fallback={<div className="loading">Page is Loading...</div>}>
       <Demo2 key={location.key} />
@@ -48,7 +44,6 @@ const Demo2Page = () => {
 
 const Demo3Page = () => {
   const location = useLocation();
-  console.log(location.key);
   return (
     <Suspense fallback={<div className="loading">Page is Loading...</div>}>
       <Demo3 key={location.key} />
@@ -58,7 +53,6 @@ const Demo3Page = () => {
 
 const Demo4Page = () => {
   const location = useLocation();
-  console.log(location.key);
   return (
     <Suspense fallback={<div className="loading">Page is Loading...</div>}>
       <Demo4 key={location.key} />
@@ -68,6 +62,7 @@ const Demo4Page = () => {
 
 function App() {
   const pathname = window.location.pathname;
+  const navigate = useNavigate();
 
   return (
     <calcite-shell>
@@ -84,7 +79,7 @@ function App() {
             icon-start="home"
             text-enabled
             label={""}
-            href="./"
+            onClick={() => navigate("/", { replace: true })}
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo1"}
@@ -92,7 +87,7 @@ function App() {
             icon-start="book"
             text-enabled
             label={""}
-            href="./demo1"
+            onClick={() => navigate("/demo1", { replace: true })}
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo2"}
@@ -100,7 +95,7 @@ function App() {
             text="Demo 2"
             icon-start="book"
             label={""}
-            href="./demo2"
+            onClick={() => navigate("/demo2", { replace: true })}
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo3"}
@@ -108,7 +103,7 @@ function App() {
             text="Demo 3"
             icon-start="book"
             label={""}
-            href="./demo3"
+            onClick={() => navigate("/demo3", { replace: true })}
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo4"}
@@ -116,7 +111,7 @@ function App() {
             text="Demo 4"
             icon-start="book"
             label={""}
-            href="./demo4"
+            onClick={() => navigate("/demo4", { replace: true })}
           ></calcite-menu-item>
         </calcite-menu>
       </calcite-navigation>
