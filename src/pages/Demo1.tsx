@@ -2,13 +2,14 @@ import { useRef } from "react";
 
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
+import "@arcgis/map-components/components/arcgis-placement";
 
-import ReactCodeMirror, { basicSetup } from "@uiw/react-codemirror";
-import { html } from "@codemirror/lang-html";
-import { vscodeLight } from "@uiw/codemirror-theme-vscode";
+import CodeBlock from "../Components/CodeBlock";
 
-function Demo1() {
+const Demo1 = () => {
   const printRef = useRef<HTMLArcgisPrintElement>(null);
+  const codeHtml = `<arcgis-print ref={printRef} position="top-right"></arcgis-print>`;
+
   const handleArcgisViewReadyChange = (
     event: HTMLArcgisMapElement["arcgisViewReadyChange"]
   ) => {
@@ -16,9 +17,6 @@ function Demo1() {
       printRef.current.showPrintAreaEnabled = true;
     }
   };
-  const codeHtml = `
-<arcgis-print ref={printRef} position="top-right"></arcgis-print>   
-`;
 
   return (
     <arcgis-map
@@ -26,17 +24,12 @@ function Demo1() {
       onarcgisViewReadyChange={handleArcgisViewReadyChange}
     >
       <arcgis-placement position="top-left">
-        <ReactCodeMirror
-          extensions={[basicSetup(), html()]}
-          editable={false}
-          value={codeHtml}
-          theme={vscodeLight}
-        ></ReactCodeMirror>
+        <CodeBlock code={codeHtml} language={"jsx"}></CodeBlock>
       </arcgis-placement>
 
       <arcgis-print ref={printRef} position="top-right"></arcgis-print>
     </arcgis-map>
   );
-}
+};
 
 export default Demo1;

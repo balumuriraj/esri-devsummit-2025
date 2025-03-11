@@ -1,7 +1,5 @@
 import { useRef, useState } from "react";
 
-import "@arcgis/map-components/components/arcgis-layer-list";
-import "@arcgis/map-components/components/arcgis-legend";
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
 import "@arcgis/map-components/components/arcgis-expand";
@@ -10,14 +8,11 @@ import "@arcgis/map-components/components/arcgis-placement";
 import "@esri/calcite-components/components/calcite-input";
 import "@esri/calcite-components/components/calcite-button";
 
-import ReactCodeMirror, { basicSetup } from "@uiw/react-codemirror";
-import { vscodeLight } from "@uiw/codemirror-theme-vscode";
-import { javascript } from "@codemirror/lang-javascript";
-
 import Portal from "@arcgis/core/portal/Portal";
 import PortalItem from "@arcgis/core/portal/PortalItem";
+import CodeBlock from "../Components/CodeBlock";
 
-function Demo3() {
+const Demo3 = () => {
   const [portalUrl, setPortalUrl] = useState<string>("");
   const [layoutItemId, setLayoutItemId] = useState<string>(
     "277e16e68d4b426183c760e9435f7fac"
@@ -116,12 +111,7 @@ const applyPrintTemplate = () => {
             </calcite-button>
           </div>
 
-          <ReactCodeMirror
-            extensions={[basicSetup(), javascript()]}
-            editable={false}
-            value={codeJs}
-            theme={vscodeLight}
-          ></ReactCodeMirror>
+          <CodeBlock code={codeJs} language={"javascript"}></CodeBlock>
         </div>
       </arcgis-placement>
 
@@ -145,12 +135,10 @@ const applyPrintTemplate = () => {
               </calcite-button>
             </div>
 
-            <ReactCodeMirror
-              extensions={[basicSetup(), javascript()]}
-              editable={false}
-              value={codeApplyPrintTemplate}
-              theme={vscodeLight}
-            ></ReactCodeMirror>
+            <CodeBlock
+              code={codeApplyPrintTemplate}
+              language={"javascript"}
+            ></CodeBlock>
           </div>
         </arcgis-placement>
       </arcgis-expand>
@@ -158,6 +146,6 @@ const applyPrintTemplate = () => {
       <arcgis-print ref={printRef} position="bottom-left"></arcgis-print>
     </arcgis-map>
   );
-}
+};
 
 export default Demo3;

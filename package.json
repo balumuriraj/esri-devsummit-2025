@@ -1,29 +1,27 @@
 {
   "name": "esri-devsummit-2025",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://balumuriraj.github.io/esri-devsummit-2025/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@arcgis/map-components": "^4.32.11",
-    "@codemirror/lang-html": "^6.4.9",
-    "@codemirror/lang-javascript": "^6.2.3",
-    "@uiw/codemirror-theme-vscode": "^4.23.10",
-    "@uiw/react-codemirror": "^4.23.10",
+    "prismjs": "^1.30.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.3.0"
+    "react-router-dom": "^7.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/prismjs": "^1.26.5",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",

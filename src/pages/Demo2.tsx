@@ -1,18 +1,15 @@
 import { useRef } from "react";
 
-import "@arcgis/map-components/components/arcgis-layer-list";
-import "@arcgis/map-components/components/arcgis-legend";
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
 import "@arcgis/map-components/components/arcgis-expand";
 import "@arcgis/map-components/components/arcgis-placement";
 
-import ReactCodeMirror, { basicSetup } from "@uiw/react-codemirror";
-import { vscodeLight } from "@uiw/codemirror-theme-vscode";
-import { html } from "@codemirror/lang-html";
-import { javascript } from "@codemirror/lang-javascript";
+import "@esri/calcite-components/components/calcite-button";
 
-function Demo2() {
+import CodeBlock from "../Components/CodeBlock";
+
+const Demo2 = () => {
   const codeHtml = `
   <arcgis-print
     ref={printRef}
@@ -71,28 +68,27 @@ function Demo2() {
       onarcgisViewReadyChange={handleArcgisViewReadyChange}
     >
       <arcgis-placement position="top-left">
-        <ReactCodeMirror
-          extensions={[basicSetup(), html()]}
-          editable={false}
-          value={codeHtml}
-          theme={vscodeLight}
-        ></ReactCodeMirror>
+        <CodeBlock code={codeHtml} language={"jsx"}></CodeBlock>
       </arcgis-placement>
 
       <arcgis-expand position="top-left">
         <arcgis-placement>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "5px" }}>
-            <div style={{ fontStyle: "oblique", padding: "5px" }}>// Change configuration programmatically</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "5px",
+            }}
+          >
+            <div style={{ fontStyle: "oblique", padding: "5px" }}>
+              // Change configuration programmatically
+            </div>
             <calcite-button iconStart="play" onClick={() => run()}>
               Run
             </calcite-button>
           </div>
-          <ReactCodeMirror
-            extensions={[basicSetup(), javascript()]}
-            editable={false}
-            value={codeJs}
-            theme={vscodeLight}
-          ></ReactCodeMirror>
+          <CodeBlock code={codeJs} language={"javascript"}></CodeBlock>
         </arcgis-placement>
       </arcgis-expand>
 

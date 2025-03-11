@@ -6,15 +6,69 @@ import "@esri/calcite-components/components/calcite-shell";
 import "@esri/calcite-components/components/calcite-menu";
 import "@esri/calcite-components/components/calcite-menu-item";
 
-import { Route, Routes } from "react-router";
-import Demo1 from "./demos/Demo1";
-import Demo2 from "./demos/Demo2";
-import Home from "./Home";
-import Demo3 from "./demos/Demo3";
-import Demo4 from "./demos/Demo4";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const Demo1 = lazy(() => import("./pages/Demo1"));
+const Demo2 = lazy(() => import("./pages/Demo2"));
+const Demo3 = lazy(() => import("./pages/Demo3"));
+const Demo4 = lazy(() => import("./pages/Demo4"));
+
+const HomePage = () => {
+  const location = useLocation();
+  console.log(location.key);
+  return (
+    <Suspense fallback={<div className="loading">Page is Loading...</div>}>
+      <Home key={location.key} />
+    </Suspense>
+  );
+};
+
+const Demo1Page = () => {
+  const location = useLocation();
+  console.log(location.key);
+
+  return (
+    <Suspense fallback={<div className="loading">Page is Loading...</div>}>
+      <Demo1 key={location.key} />
+    </Suspense>
+  );
+};
+
+const Demo2Page = () => {
+  const location = useLocation();
+  console.log(location.key);
+  return (
+    <Suspense fallback={<div className="loading">Page is Loading...</div>}>
+      <Demo2 key={location.key} />
+    </Suspense>
+  );
+};
+
+const Demo3Page = () => {
+  const location = useLocation();
+  console.log(location.key);
+  return (
+    <Suspense fallback={<div className="loading">Page is Loading...</div>}>
+      <Demo3 key={location.key} />
+    </Suspense>
+  );
+};
+
+const Demo4Page = () => {
+  const location = useLocation();
+  console.log(location.key);
+  return (
+    <Suspense fallback={<div className="loading">Page is Loading...</div>}>
+      <Demo4 key={location.key} />
+    </Suspense>
+  );
+};
 
 function App() {
   const pathname = window.location.pathname;
+
   return (
     <calcite-shell>
       <calcite-navigation slot="header">
@@ -68,11 +122,11 @@ function App() {
       </calcite-navigation>
 
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="demo1" element={<Demo1 />} />
-        <Route path="demo2" element={<Demo2 />} />
-        <Route path="demo3" element={<Demo3 />} />
-        <Route path="demo4" element={<Demo4 />} />
+        <Route index element={<HomePage />} />
+        <Route path="demo1" element={<Demo1Page />} />
+        <Route path="demo2" element={<Demo2Page />} />
+        <Route path="demo3" element={<Demo3Page />} />
+        <Route path="demo4" element={<Demo4Page />} />
       </Routes>
     </calcite-shell>
   );
