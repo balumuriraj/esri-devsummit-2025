@@ -1,0 +1,1 @@
+import{aB as e,aC as f,aD as i}from"./CodeBlock-DBIw63CI.js";import{c as m}from"./query-DTz_QEX_.js";async function w(a,r,t){const n=await u(a,r,t);return e.fromJSON(n)}async function u(a,r,t){const n=f(a),s={...t},o=i.from(r),{data:c}=await m(n,o,o.sourceSpatialReference,s);return c}export{u as a,w as s};
