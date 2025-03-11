@@ -1,5 +1,6 @@
 import "@esri/calcite-components/components/calcite-button";
 import "@esri/calcite-components/components/calcite-icon";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -27,9 +28,11 @@ const Home = () => {
       >
         Print for Web Developers
       </div>
-      <calcite-button icon-start="print" scale="l" href="./demo1">
-        Get Started
-      </calcite-button>
+      <Link to="/demo1">
+        <calcite-button icon-start="print" scale="l">
+          Get Started
+        </calcite-button>
+      </Link>
     </div>
   );
 };

@@ -7,6 +7,8 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import "prismjs/themes/prism.css";
 import 'prismjs/components/prism-jsx.js'
 
+import "./CodeBlock.css";
+
 const CodeBlock = ({ code, language }: { code: string; language?: string }) => {
   useEffect(() => {
     Prism.highlightAll();
