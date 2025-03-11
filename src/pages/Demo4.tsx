@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
@@ -45,6 +45,13 @@ const Demo4 = () => {
 
     view.ui.add(printEl, "bottom-left");
   };
+
+  useEffect(() => {
+    // returned function will be called on component unmount
+    return () => {
+      print?.destroy();
+    };
+  }, [print]);
 
   return (
     <arcgis-map

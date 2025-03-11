@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
@@ -40,12 +40,14 @@ const Demo2 = () => {
   };
   `;
   const printRef = useRef<HTMLArcgisPrintElement>(null);
+  const [print, setPrint] = useState<HTMLArcgisPrintElement | undefined>();
 
   const handleArcgisViewReadyChange = (
     event: HTMLArcgisMapElement["arcgisViewReadyChange"]
   ) => {
     if (printRef.current && event.target.view.ready) {
       printRef.current.showPrintAreaEnabled = true;
+      setPrint(printRef.current);
     }
   };
 
@@ -61,6 +63,13 @@ const Demo2 = () => {
       printRef.current.templateOptions.fileName = map.portalItem?.title;
     }
   };
+
+  useEffect(() => {
+    // returned function will be called on component unmount
+    return () => {
+      print?.destroy();
+    };
+  }, [print]);
 
   return (
     <arcgis-map
@@ -109,6 +118,6 @@ const Demo2 = () => {
       ></arcgis-print>
     </arcgis-map>
   );
-}
+};
 
 export default Demo2;

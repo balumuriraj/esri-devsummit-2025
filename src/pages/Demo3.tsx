@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
@@ -28,6 +28,13 @@ const Demo3 = () => {
       setPrint(printRef.current);
     }
   };
+
+  useEffect(() => {
+    // returned function will be called on component unmount
+    return () => {
+      print?.destroy();
+    };
+  }, [print]);
 
   const codeJs = `
 const { view } = document.querySelector("arcgis-map") as HTMLArcgisMapElement;
