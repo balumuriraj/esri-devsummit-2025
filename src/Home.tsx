@@ -27,7 +27,7 @@ const Home = () => {
       >
         Print for Web Developers
       </div>
-      <calcite-button icon-start="print" scale="l" href="/demo1">
+      <calcite-button icon-start="print" scale="l" href="./demo1">
         Get Started
       </calcite-button>
     </div>

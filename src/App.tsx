@@ -30,7 +30,7 @@ function App() {
             icon-start="home"
             text-enabled
             label={""}
-            href="/"
+            href="./"
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo1"}
@@ -38,7 +38,7 @@ function App() {
             icon-start="book"
             text-enabled
             label={""}
-            href="/demo1"
+            href="./demo1"
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo2"}
@@ -46,7 +46,7 @@ function App() {
             text="Demo 2"
             icon-start="book"
             label={""}
-            href="/demo2"
+            href="./demo2"
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo3"}
@@ -54,7 +54,7 @@ function App() {
             text="Demo 3"
             icon-start="book"
             label={""}
-            href="/demo3"
+            href="./demo3"
           ></calcite-menu-item>
           <calcite-menu-item
             active={pathname === "/demo4"}
@@ -62,7 +62,7 @@ function App() {
             text="Demo 4"
             icon-start="book"
             label={""}
-            href="/demo4"
+            href="./demo4"
           ></calcite-menu-item>
         </calcite-menu>
       </calcite-navigation>
