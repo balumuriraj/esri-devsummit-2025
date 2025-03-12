@@ -48,6 +48,12 @@ const Demo4 = () => {
     return printEl;
   };
 
+  const createPrintString = `
+  const printEl = document.createElement("arcgis-print");
+  printEl.printServiceUrl = printServiceUrl;
+  printEl.showPrintAreaEnabled = true;
+  `;
+
   const createPrintComponentWithCustomTextElements = () => {
     const printEl = document.createElement("arcgis-print");
     printEl.printServiceUrl = printServiceUrl;
@@ -58,6 +64,16 @@ const Demo4 = () => {
     printEl.showPrintAreaEnabled = true;
     return printEl;
   };
+
+  const createPrintComponentWithCustomTextElementsString = `
+  const printEl = document.createElement("arcgis-print");
+  printEl.printServiceUrl = printServiceUrl;
+  printEl.templateCustomTextElements = {
+    "Letter Landscape (blue)": [{ "Region Name": "My Blue Text" }],
+    "Letter Portrait (green)": [{ "Region Name": "My Green Text" }],
+  };
+  printEl.showPrintAreaEnabled = true;
+  `;
 
   useEffect(() => {
     // returned function will be called on component unmount
@@ -86,7 +102,7 @@ const Demo4 = () => {
           </div>
 
           <CodeBlock
-            code={createPrintComponent.toString()}
+            code={createPrintString}
             language={"javascript"}
           ></CodeBlock>
         </div>
@@ -106,7 +122,7 @@ const Demo4 = () => {
             </div>
 
             <CodeBlock
-              code={createPrintComponentWithCustomTextElements.toString()}
+              code={createPrintComponentWithCustomTextElementsString}
               language={"javascript"}
             ></CodeBlock>
           </div>
