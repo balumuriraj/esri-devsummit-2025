@@ -15,7 +15,7 @@ import CodeBlock from "../Components/CodeBlock";
 const Demo3 = () => {
   const [portalUrl, setPortalUrl] = useState<string>("");
   const [layoutItemId, setLayoutItemId] = useState<string>(
-    "277e16e68d4b426183c760e9435f7fac"
+    "dc4148b79ff14887bb022ee99fd1f99b"
   );
   const [print, setPrint] = useState<HTMLArcgisPrintElement | undefined>();
   const printRef = useRef<HTMLArcgisPrintElement>(null);

@@ -32,7 +32,7 @@ const Demo2 = () => {
     ) as HTMLArcgisMapElement;
     const map = view.map as __esri.WebMap;
 
-    if (printRef.current && view.ready) {
+    if (printRef.current) {
       printRef.current.templateOptions.legendEnabled = true;
       printRef.current.templateOptions.dpi = 100;
       printRef.current.templateOptions.fileName = map.portalItem?.title;
@@ -57,7 +57,7 @@ const Demo2 = () => {
     ) as HTMLArcgisMapElement;
     const map = view.map as __esri.WebMap;
 
-    if (printRef.current && view.ready) {
+    if (printRef.current) {
       printRef.current.templateOptions.legendEnabled = true;
       printRef.current.templateOptions.dpi = 100;
       printRef.current.templateOptions.fileName = map.portalItem?.title;
