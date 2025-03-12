@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "@arcgis/map-components/components/arcgis-map";
 import "@arcgis/map-components/components/arcgis-print";
 import "@arcgis/map-components/components/arcgis-placement";
+import "@arcgis/map-components/components/arcgis-expand";
 
 import "@esri/calcite-components/components/calcite-input";
 import "@esri/calcite-components/components/calcite-button";
@@ -23,13 +24,7 @@ const Demo4 = () => {
     }
   };
 
-  const codeJs = `
-  const print = document.createElement("arcgis-print");
-  print.printServiceUrl = printServiceUrl;
-  print.showPrintAreaEnabled = true;
-  `;
-
-  const run = () => {
+  const run = (override?: boolean) => {
     const { view } = document.querySelector(
       "arcgis-map"
     ) as HTMLArcgisMapElement;
@@ -38,12 +33,30 @@ const Demo4 = () => {
       print.destroy();
     }
 
-    const printEl = document.createElement("arcgis-print");
-    printEl.printServiceUrl = printServiceUrl;
-    printEl.showPrintAreaEnabled = true;
+    const printEl = override
+      ? createPrintComponentWithCustomTextElements()
+      : createPrintComponent();
     setPrint(printEl);
 
     view.ui.add(printEl, "bottom-left");
+  };
+
+  const createPrintComponent = () => {
+    const printEl = document.createElement("arcgis-print");
+    printEl.printServiceUrl = printServiceUrl;
+    printEl.showPrintAreaEnabled = true;
+    return printEl;
+  };
+
+  const createPrintComponentWithCustomTextElements = () => {
+    const printEl = document.createElement("arcgis-print");
+    printEl.printServiceUrl = printServiceUrl;
+    printEl.templateCustomTextElements = {
+      "Letter Landscape (blue)": [{ "Region Name": "My Blue Text" }],
+      "Letter Portrait (green)": [{ "Region Name": "My Green Text" }],
+    };
+    printEl.showPrintAreaEnabled = true;
+    return printEl;
   };
 
   useEffect(() => {
@@ -64,7 +77,7 @@ const Demo4 = () => {
             <calcite-input
               placeholder="printServiceUrl"
               value={printServiceUrl}
-              onChange={(e) => setUrl(e.currentTarget.value)}
+              onInput={(e) => setUrl(e.currentTarget.value)}
               style={{ flexGrow: 1 }}
             ></calcite-input>
             <calcite-button iconStart="play" onClick={() => run()}>
@@ -72,9 +85,33 @@ const Demo4 = () => {
             </calcite-button>
           </div>
 
-          <CodeBlock code={codeJs} language={"javascript"}></CodeBlock>
+          <CodeBlock
+            code={createPrintComponent.toString()}
+            language={"javascript"}
+          ></CodeBlock>
         </div>
       </arcgis-placement>
+
+      <arcgis-expand position="top-right">
+        <arcgis-placement>
+          <div style={{ padding: "10px", background: "white" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <calcite-button
+                disabled={!printServiceUrl}
+                iconStart="play"
+                onClick={() => run(true)}
+              >
+                Run
+              </calcite-button>
+            </div>
+
+            <CodeBlock
+              code={createPrintComponentWithCustomTextElements.toString()}
+              language={"javascript"}
+            ></CodeBlock>
+          </div>
+        </arcgis-placement>
+      </arcgis-expand>
 
       <arcgis-print ref={printRef} position="bottom-left"></arcgis-print>
     </arcgis-map>
