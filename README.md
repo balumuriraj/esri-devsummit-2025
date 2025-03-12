@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# esri-devsummit-2025
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Menu
+https://balumuriraj.github.io/esri-devsummit-2025
 
-Currently, two official plugins are available:
+Web map with a Print component
+https://balumuriraj.github.io/esri-devsummit-2025/#/demo1
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+<img width="1728" alt="Screenshot 2025-03-12 at 2 35 42 PM" src="https://github.com/user-attachments/assets/908a57d9-2609-4a8d-b852-defb91baabb7" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Custom configuration for Print component
+https://balumuriraj.github.io/esri-devsummit-2025/#/demo2
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<img width="1728" alt="Screenshot 2025-03-12 at 2 36 16 PM" src="https://github.com/user-attachments/assets/88591717-9b5c-429a-b74b-ab51ccbefca1" />
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+Print component with portal
+https://balumuriraj.github.io/esri-devsummit-2025/#/demo3
+
+
+<img width="1728" alt="Screenshot 2025-03-12 at 2 36 56 PM" src="https://github.com/user-attachments/assets/a08eb68a-8a08-4a92-b5a3-dac990049e51" />
+
+
+Print component with custom text elements
+https://balumuriraj.github.io/esri-devsummit-2025/#/demo4
+
+
+<img width="1728" alt="Screenshot 2025-03-12 at 2 37 44 PM" src="https://github.com/user-attachments/assets/2cac6eab-cbe0-4195-a66a-a35a276422e8" />
