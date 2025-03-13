@@ -29,3 +29,11 @@ https://balumuriraj.github.io/esri-devsummit-2025/#/demo4
 
 
 <img width="1728" alt="Screenshot 2025-03-12 at 2 37 44 PM" src="https://github.com/user-attachments/assets/2cac6eab-cbe0-4195-a66a-a35a276422e8" />
+
+
+Print component with exportsLinks in local storage
+https://balumuriraj.github.io/esri-devsummit-2025/#/demo5
+
+
+<img width="1728" alt="Screenshot 2025-03-12 at 6 55 45 PM" src="https://github.com/user-attachments/assets/c77338a1-3c27-4b3b-b856-fac55b76723c" />
+
