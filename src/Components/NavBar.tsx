@@ -63,6 +63,15 @@ const NavBar = () => {
             label={"Demo4"}
           ></calcite-menu-item>
         </Link>
+        <Link to="/demo5">
+          <calcite-menu-item
+            active={pathname === "/demo5"}
+            text-enabled
+            text="Demo 5"
+            icon-start="book"
+            label={"Demo5"}
+          ></calcite-menu-item>
+        </Link>
       </calcite-menu>
     </calcite-navigation>
   );

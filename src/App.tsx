@@ -13,6 +13,7 @@ const Demo1 = lazy(() => import("./pages/Demo1"));
 const Demo2 = lazy(() => import("./pages/Demo2"));
 const Demo3 = lazy(() => import("./pages/Demo3"));
 const Demo4 = lazy(() => import("./pages/Demo4"));
+const Demo5 = lazy(() => import("./pages/Demo5"));
 
 const Loading = () => (
   <div className="loading">
@@ -50,6 +51,12 @@ const Demo4Page = () => (
   </Suspense>
 );
 
+const Demo5Page = () => (
+  <Suspense fallback={<Loading />}>
+    <Demo5 />
+  </Suspense>
+);
+
 function App() {
   return (
     <calcite-shell>
@@ -60,6 +67,7 @@ function App() {
         <Route path="demo2" element={<Demo2Page />} />
         <Route path="demo3" element={<Demo3Page />} />
         <Route path="demo4" element={<Demo4Page />} />
+        <Route path="demo5" element={<Demo5Page />} />
       </Routes>
     </calcite-shell>
   );

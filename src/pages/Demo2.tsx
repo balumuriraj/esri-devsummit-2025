@@ -27,10 +27,10 @@ const Demo2 = () => {
   `;
   const codeJs = `
   const run = () => {
-    const { view } = document.querySelector(
+    const mapElement = document.querySelector(
       "arcgis-map"
     ) as HTMLArcgisMapElement;
-    const map = view.map as __esri.WebMap;
+    const map = mapElement.map as __esri.WebMap;
 
     if (printRef.current) {
       printRef.current.templateOptions.legendEnabled = true;
@@ -52,10 +52,10 @@ const Demo2 = () => {
   };
 
   const run = () => {
-    const { view } = document.querySelector(
+    const mapElement = document.querySelector(
       "arcgis-map"
     ) as HTMLArcgisMapElement;
-    const map = view.map as __esri.WebMap;
+    const map = mapElement.map as __esri.WebMap;
 
     if (printRef.current) {
       printRef.current.templateOptions.legendEnabled = true;
